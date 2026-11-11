@@ -1,0 +1,142 @@
+/* Orbiting Tech Icons Animation */
+.avatar-orbit-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base Orbit Ring */
+.orbit-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    animation: spin 20s linear infinite;
+    pointer-events: none;
+}
+
+/* Pause rotation on hover */
+.avatar-orbit-container:hover .orbit-ring {
+    animation-play-state: paused;
+}
+
+/* Orbiting Icon styling */
+.orbit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 42px;
+    height: 42px;
+    margin-top: -21px;
+    margin-left: -21px;
+    background: rgba(20, 20, 20, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+/* Position icons around 360 degrees circle & Counter-rotate icons so they stay upright */
+.orbit-icon:nth-child(1) {
+    transform: rotate(0deg) translate(140px) rotate(0deg);
+}
+
+.orbit-icon:nth-child(2) {
+    transform: rotate(60deg) translate(140px) rotate(-60deg);
+}
+
+.orbit-icon:nth-child(3) {
+    transform: rotate(120deg) translate(140px) rotate(-120deg);
+}
+
+.orbit-icon:nth-child(4) {
+    transform: rotate(180deg) translate(140px) rotate(-180deg);
+}
+
+.orbit-icon:nth-child(5) {
+    transform: rotate(240deg) translate(140px) rotate(-240deg);
+}
+
+.orbit-icon:nth-child(6) {
+    transform: rotate(300deg) translate(140px) rotate(-300deg);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Counter-spin animation to keep tech icons always upright while orbiting */
+@keyframes unspin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.orbit-ring .orbit-icon i {
+    animation: unspin 20s linear infinite;
+}
+
+.avatar-orbit-container:hover .orbit-ring .orbit-icon i {
+    animation-play-state: paused;
+}
+
+/* Mobile Responsiveness for Orbit */
+@media (max-width: 575.98px) {
+    .avatar-orbit-container {
+        width: 210px;
+        height: 210px;
+    }
+
+    .orbit-icon {
+        width: 34px;
+        height: 34px;
+        margin-top: -17px;
+        margin-left: -17px;
+        font-size: 0.9rem;
+    }
+
+    .orbit-icon:nth-child(1) {
+        transform: rotate(0deg) translate(105px) rotate(0deg);
+    }
+
+    .orbit-icon:nth-child(2) {
+        transform: rotate(60deg) translate(105px) rotate(-60deg);
+    }
+
+    .orbit-icon:nth-child(3) {
+        transform: rotate(120deg) translate(105px) rotate(-120deg);
+    }
+
+    .orbit-icon:nth-child(4) {
+        transform: rotate(180deg) translate(105px) rotate(-180deg);
+    }
+
+    .orbit-icon:nth-child(5) {
+        transform: rotate(240deg) translate(105px) rotate(-240deg);
+    }
+
+    .orbit-icon:nth-child(6) {
+        transform: rotate(300deg) translate(105px) rotate(-300deg);
+    }
+}
